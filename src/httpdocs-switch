@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -d httpdocs-release ]; then
+  mv httpdocs httpdocs-holding
+  mv httpdocs-release httpdocs
+  mv httpdocs-holding httpdocs-release
+else
+  echo "No httpdocs-release folder!"
+fi

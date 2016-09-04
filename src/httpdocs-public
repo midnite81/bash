@@ -1,0 +1,24 @@
+#!/bin/bash
+# Move httpdocs contents into public and then place
+# htaccess to deal with doc root being at httpdocs root path
+
+# If there is no httpdocs folder, kill the script
+if [ ! -d httpdocs ]; then
+  echo "No httpdocs folder!"
+  exit
+fi
+
+
+read -r -p "Are you sure you want to move the contents of httpdocs to httpdocs/public? [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    mkdir hp_transfer
+    mv httpdocs/ hp_transfer/public/
+    cd hp_transfer
+    wget -O .htaccess https://raw.githubusercontent.com/midnite81/PHPFuncs/master/Use%20Laravel%20on%20Shared%20Hosting.htaccess
+    cd ..
+    mv hp_transfer httpdocs
+    echo "The httpdocs contents have been moved to /public"
+else
+    echo "OK, nothing has been moved"
+fi
