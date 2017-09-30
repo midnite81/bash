@@ -1,4 +1,5 @@
 #!/bin/bash
+# Makes bin files and it's subfolders executable
 
 cd ~/.bin/
-chmod 755 *
+chmod -R 755 .
