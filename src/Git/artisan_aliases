@@ -1,0 +1,4 @@
+alias toLocal='php artisan env:set DB_CONNECTION mysql_local'
+alias toDev='php artisan env:set DB_CONNECTION mysql_dev'
+alias toStg='php artisan env:set DB_CONNECTION mysql_staging'
+alias toLive='php artisan env:set DB_CONNECTION mysql_live'
